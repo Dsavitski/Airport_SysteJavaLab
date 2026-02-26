@@ -12,9 +12,9 @@ import java.util.Optional;
 public class FlightRepository {
 
     private final List<Flight> flights = List.of(
-        new Flight(1L, "1", "Minsk", "On time"),
+        new Flight(1L, "1", "Minsk", "Arrived"),
         new Flight(2L, "2", "Vitebsk", "On time"),
-        new Flight(3L, "3", "Brest", "On time")
+        new Flight(3L, "3", "Brest", "Delayed")
     );
 
 
