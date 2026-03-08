@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AirportDisplayDto {
-    private Long Id;
+    private Long id;
     private String country;
     private String city;
 }
