@@ -1,0 +1,22 @@
+package com.example.demo.dto;
+
+import com.example.demo.Amenities;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class FlightCreateDto {
+    private String flightNumber;
+    private String departureDate;
+    private String arrivalDate;
+    private Long departureAirportCode;
+    private Long arrivalAirportCode;
+    private Long airplaneId;
+    private List<Amenities> amenitiesIds;
+}
