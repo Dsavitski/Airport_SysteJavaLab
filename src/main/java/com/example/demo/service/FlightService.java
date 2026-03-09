@@ -7,10 +7,11 @@ import com.example.demo.mapper.FlightMapper;
 import com.example.demo.repository.FlightRepository;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,25 +26,32 @@ public class FlightService {
         return flightMapper.toDisplayDTO(savedFlight);
     }
 
+    public List<Flight> getAllFlightsWithJoinFetch() {
+        return flightRepository.findAllWithFetchJoin();
+    }
+
 
     public List<FlightDisplayDto> getAllFlights() {
         return flightRepository.findAll().stream()
             .map(flightMapper::toDisplayDTO)
-            .collect(Collectors.toList());
+            .toList();
     }
+
 
     
 
 
     public FlightDisplayDto getFlightById(Long id) {
         Flight flight = flightRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Flight not found with id: " + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Flight not found"));
         return flightMapper.toDisplayDTO(flight);
     }
 
     public FlightDisplayDto updateFlight(Long id, FlightCreateDto dto) {
         Flight existingFlight = flightRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Flight not found with id: " + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Flight not found"));
         Flight updatedFlight = flightMapper.toEntity(dto);
         updatedFlight.setId(existingFlight.getId());
         Flight savedFlight = flightRepository.save(updatedFlight);
@@ -52,7 +60,8 @@ public class FlightService {
 
     public void deleteFlight(Long id) {
         if (!flightRepository.existsById(id)) {
-            throw new RuntimeException("Flight not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Flight not found");
         }
         flightRepository.deleteById(id);
     }

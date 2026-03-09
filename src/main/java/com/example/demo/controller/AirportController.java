@@ -30,6 +30,18 @@ public class AirportController {
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
+    @PostMapping("/create-transactional")
+    public ResponseEntity<AirportDisplayDto> createAirportTransactional(@RequestBody AirportCreateDto dto) {
+        AirportDisplayDto created = airportService.createAirportTransactional(dto);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/create-no-transaction")
+    public ResponseEntity<AirportDisplayDto> createAirportNoTransaction(@RequestBody AirportCreateDto dto) {
+        AirportDisplayDto created = airportService.createAirportNoTransaction(dto);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    }
+
     @GetMapping
     public ResponseEntity<List<AirportDisplayDto>> getAllAirports() {
         return ResponseEntity.ok(airportService.getAllAirports());

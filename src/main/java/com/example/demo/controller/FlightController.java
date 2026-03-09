@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.FlightCreateDto;
 import com.example.demo.dto.FlightDisplayDto;
+import com.example.demo.entities.Flight;
+import com.example.demo.mapper.FlightMapper;
 import com.example.demo.service.FlightService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/flights")
@@ -23,12 +26,23 @@ import java.util.List;
 public class FlightController {
 
     private final FlightService flightService;
+    private final FlightMapper flightMapper;
 
     @PostMapping
     public ResponseEntity<FlightDisplayDto> createFlight(@RequestBody FlightCreateDto dto) {
         FlightDisplayDto createdFlight = flightService.createFlight(dto);
         return new ResponseEntity<>(createdFlight, HttpStatus.CREATED);
     }
+
+    @GetMapping("/joinfetch")
+    public ResponseEntity<List<FlightDisplayDto>> getAllFlightsWithJoinFetch() {
+        List<Flight> flights = flightService.getAllFlightsWithJoinFetch();
+        List<FlightDisplayDto> dtos = flights.stream()
+            .map(flightMapper::toDisplayDTO)
+            .collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
+    }
+
 
     @GetMapping
     public ResponseEntity<List<FlightDisplayDto>> getAllFlights() {

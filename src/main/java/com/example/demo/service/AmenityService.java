@@ -6,10 +6,11 @@ import com.example.demo.dto.AmenityDisplayDto;
 import com.example.demo.mapper.AmenityMapper;
 import com.example.demo.repository.AmenityRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,18 +28,20 @@ public class AmenityService {
     public List<AmenityDisplayDto> getAllAmenities() {
         return amenityRepository.findAll().stream()
             .map(amenityMapper::toDisplayDto)
-            .collect(Collectors.toList());
+            .toList();
     }
 
     public AmenityDisplayDto getAmenityById(Long id) {
         Amenity amenity = amenityRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Amenity not found with id: " + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Amenity not found"));
         return amenityMapper.toDisplayDto(amenity);
     }
 
     public AmenityDisplayDto updateAmenity(Long id, AmenityCreateDto dto) {
         Amenity existing = amenityRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Amenity not found with id: " + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Amenity not found"));
         existing.setAmenities(dto.getAmenities());
         Amenity saved = amenityRepository.save(existing);
         return amenityMapper.toDisplayDto(saved);
@@ -46,7 +49,8 @@ public class AmenityService {
 
     public void deleteAmenity(Long id) {
         if (!amenityRepository.existsById(id)) {
-            throw new RuntimeException("Amenity not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Amenity not found");
         }
         amenityRepository.deleteById(id);
     }

@@ -8,10 +8,11 @@ import com.example.demo.mapper.TicketMapper;
 import com.example.demo.repository.FlightRepository;
 import com.example.demo.repository.TicketRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +24,8 @@ public class TicketService {
 
     public TicketDisplayDto createTicket(TicketCreateDto dto, Long flightId) {
         Flight flight = flightRepository.findById(flightId)
-            .orElseThrow(() -> new RuntimeException("Flight not found with id: " + flightId));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Ticket not found"));
         Ticket ticket = ticketMapper.toEntity(dto, flight);
         Ticket savedTicket = ticketRepository.save(ticket);
         return ticketMapper.toDisplayDto(savedTicket);
@@ -32,21 +34,24 @@ public class TicketService {
     public List<TicketDisplayDto> getAllTickets() {
         return ticketRepository.findAll().stream()
             .map(ticketMapper::toDisplayDto)
-            .collect(Collectors.toList());
+            .toList();
     }
 
 
     public TicketDisplayDto getTicketById(Long id) {
         Ticket ticket = ticketRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Ticket not found with id: " + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Ticket not found"));
         return ticketMapper.toDisplayDto(ticket);
     }
 
     public TicketDisplayDto updateTicket(Long id, TicketCreateDto dto, Long flightId) {
         Ticket existingTicket = ticketRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Ticket not found with id: " + id));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Ticket not found"));
         Flight flight = flightRepository.findById(flightId)
-            .orElseThrow(() -> new RuntimeException("Flight not found with id: " + flightId));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Ticket not found"));
         existingTicket.setPassportNumber(dto.getPassportNumber());
         existingTicket.setPassengerName(dto.getPassengerName());
         existingTicket.setSeat(dto.getSeat());
@@ -58,7 +63,8 @@ public class TicketService {
 
     public void deleteTicket(Long id) {
         if (!ticketRepository.existsById(id)) {
-            throw new RuntimeException("Ticket not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus
+                .NOT_FOUND, "Ticket not found");
         }
         ticketRepository.deleteById(id);
     }
