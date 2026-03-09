@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/flights")
@@ -39,7 +38,7 @@ public class FlightController {
         List<Flight> flights = flightService.getAllFlightsWithJoinFetch();
         List<FlightDisplayDto> dtos = flights.stream()
             .map(flightMapper::toDisplayDTO)
-            .collect(Collectors.toList());
+            .toList();
         return ResponseEntity.ok(dtos);
     }
 

@@ -31,15 +31,16 @@ public class AirportService {
     @Transactional
     public List<AirportDisplayDto> createAirportsTransactional(List<AirportCreateDto> dtos) {
         List<AirportDisplayDto> results = new ArrayList<>();
-
+        System.out.println("Starting transaction...");
         for (int i = 0; i < dtos.size(); i++) {
             AirportCreateDto dto = dtos.get(i);
 
-            // После первого элемента выбрасываем исключение
+
             if (i == 1) {
                 throw new ResponseStatusException(HttpStatus
                     .INTERNAL_SERVER_ERROR, "Amenity not found");
             }
+
 
             Airport airport = airportMapper.toEntity(dto);
             Airport savedAirport = airportRepository.saveAndFlush(airport);
@@ -55,7 +56,7 @@ public class AirportService {
         for (int i = 0; i < dtos.size(); i++) {
             AirportCreateDto dto = dtos.get(i);
 
-            // После первого элемента выбрасываем исключение
+
             if (i == 1) {
                 throw new ResponseStatusException(HttpStatus
                     .INTERNAL_SERVER_ERROR, "Amenity not found");
