@@ -10,7 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class AirportService {
 
     private final AirportRepository airportRepository;
     private final AirportMapper airportMapper;
-
+    private static final Logger log = LoggerFactory.getLogger(AirportService.class);
     public AirportDisplayDto createAirport(AirportCreateDto dto) {
         Airport airport = airportMapper.toEntity(dto);
         Airport savedAirport = airportRepository.save(airport);
@@ -31,7 +32,7 @@ public class AirportService {
     @Transactional
     public List<AirportDisplayDto> createAirportsTransactional(List<AirportCreateDto> dtos) {
         List<AirportDisplayDto> results = new ArrayList<>();
-        System.out.println("Starting transaction...");
+        log.info("Starting transaction...");
         for (int i = 0; i < dtos.size(); i++) {
             AirportCreateDto dto = dtos.get(i);
 
