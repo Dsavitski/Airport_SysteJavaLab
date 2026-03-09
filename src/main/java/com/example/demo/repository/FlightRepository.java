@@ -12,8 +12,6 @@ import java.util.List;
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     @Query("select f from Flight f " +
-        "join fetch f.departureAirportCode " +
-        "join fetch f.arrivalAirportCode " +
-        "join fetch f.airplaneId")
+        "join fetch f.tickets ")
     List<Flight> findAllWithFetchJoin();
 }

@@ -25,7 +25,7 @@ public class TicketService {
     public TicketDisplayDto createTicket(TicketCreateDto dto, Long flightId) {
         Flight flight = flightRepository.findById(flightId)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket not found"));
+                .NOT_FOUND, "Ticket is not found"));
         Ticket ticket = ticketMapper.toEntity(dto, flight);
         Ticket savedTicket = ticketRepository.save(ticket);
         return ticketMapper.toDisplayDto(savedTicket);
@@ -48,10 +48,10 @@ public class TicketService {
     public TicketDisplayDto updateTicket(Long id, TicketCreateDto dto, Long flightId) {
         Ticket existingTicket = ticketRepository.findById(id)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket not found"));
+                .NOT_FOUND, "Ticket not found!"));
         Flight flight = flightRepository.findById(flightId)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket not found"));
+                .NOT_FOUND, "Ticket not found!!!"));
         existingTicket.setPassportNumber(dto.getPassportNumber());
         existingTicket.setPassengerName(dto.getPassengerName());
         existingTicket.setSeat(dto.getSeat());
@@ -64,7 +64,7 @@ public class TicketService {
     public void deleteTicket(Long id) {
         if (!ticketRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket not found");
+                .NOT_FOUND, "Ticket is not found!");
         }
         ticketRepository.deleteById(id);
     }

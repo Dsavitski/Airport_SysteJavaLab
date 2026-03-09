@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,24 +29,44 @@ public class AirportService {
 
 
     @Transactional
-    public AirportDisplayDto createAirportTransactional(AirportCreateDto dto) {
-        if (dto.getCountry() == null) {
-            throw new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Airport not found");
+    public List<AirportDisplayDto> createAirportsTransactional(List<AirportCreateDto> dtos) {
+        List<AirportDisplayDto> results = new ArrayList<>();
+
+        for (int i = 0; i < dtos.size(); i++) {
+            AirportCreateDto dto = dtos.get(i);
+
+            // После первого элемента выбрасываем исключение
+            if (i == 1) {
+                throw new ResponseStatusException(HttpStatus
+                    .INTERNAL_SERVER_ERROR, "Amenity not found");
+            }
+
+            Airport airport = airportMapper.toEntity(dto);
+            Airport savedAirport = airportRepository.saveAndFlush(airport);
+            results.add(airportMapper.toDisplayDto(savedAirport));
         }
-        Airport airport = airportMapper.toEntity(dto);
-        Airport savedAirport = airportRepository.save(airport);
-        return airportMapper.toDisplayDto(savedAirport);
+
+        return results;
     }
 
-    public AirportDisplayDto createAirportNoTransaction(AirportCreateDto dto) {
-        if (dto.getCountry() == null) {
-            throw new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Airport not found");
+    public List<AirportDisplayDto> createAirportsNoTransaction(List<AirportCreateDto> dtos) {
+        List<AirportDisplayDto> results = new ArrayList<>();
+
+        for (int i = 0; i < dtos.size(); i++) {
+            AirportCreateDto dto = dtos.get(i);
+
+            // После первого элемента выбрасываем исключение
+            if (i == 1) {
+                throw new ResponseStatusException(HttpStatus
+                    .INTERNAL_SERVER_ERROR, "Amenity not found");
+            }
+
+            Airport airport = airportMapper.toEntity(dto);
+            Airport savedAirport = airportRepository.save(airport);
+            results.add(airportMapper.toDisplayDto(savedAirport));
         }
-        Airport airport = airportMapper.toEntity(dto);
-        Airport savedAirport = airportRepository.save(airport);
-        return airportMapper.toDisplayDto(savedAirport);
+
+        return results;
     }
 
     public List<AirportDisplayDto> getAllAirports() {

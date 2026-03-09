@@ -34,6 +34,7 @@ public class FlightMapper {
 
         flight.setDepartureAirportCode(departureAirport);
         flight.setArrivalAirportCode(arrivalAirport);
+        flight.setTickets(dto.getTickets());
 
         Airplane airplane = airplaneRepository.findById(dto.getAirplaneId())
             .orElseThrow(() -> new RuntimeException("Airplane not found: " + dto.getAirplaneId()));
@@ -52,6 +53,7 @@ public class FlightMapper {
         dto.setArrivalAirportCode(flight.getArrivalAirportCode().getId());
         dto.setAirplaneId(flight.getAirplaneId().getId());
         dto.setStatus(flight.getStatus());
+        dto.setTickets(flight.getTickets());
 
         return dto;
     }

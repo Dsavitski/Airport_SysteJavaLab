@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import com.example.demo.FlightStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
@@ -60,5 +61,6 @@ public class Flight {
     private List<Amenity> amenities = new ArrayList<>();
 
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Ticket> tickets = new ArrayList<>();
 }
