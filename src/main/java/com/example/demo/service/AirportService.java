@@ -21,7 +21,7 @@ public class AirportService {
 
     private final AirportRepository airportRepository;
     private final AirportMapper airportMapper;
-    private static final Logger log = LoggerFactory.getLogger(AirportService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AirportService.class);
     public AirportDisplayDto createAirport(AirportCreateDto dto) {
         Airport airport = airportMapper.toEntity(dto);
         Airport savedAirport = airportRepository.save(airport);
@@ -32,7 +32,7 @@ public class AirportService {
     @Transactional
     public List<AirportDisplayDto> createAirportsTransactional(List<AirportCreateDto> dtos) {
         List<AirportDisplayDto> results = new ArrayList<>();
-        log.info("Starting transaction...");
+        LOG.info("Starting transaction...");
         for (int i = 0; i < dtos.size(); i++) {
             AirportCreateDto dto = dtos.get(i);
 
