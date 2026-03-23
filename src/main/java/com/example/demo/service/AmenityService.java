@@ -42,7 +42,7 @@ public class AmenityService {
         Amenity existing = amenityRepository.findById(id)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus
                 .NOT_FOUND, "Amenity not found"));
-        existing.setAmenities(dto.getAmenities());
+        existing.setName(dto.getAmenities());
         Amenity saved = amenityRepository.save(existing);
         return amenityMapper.toDisplayDto(saved);
     }

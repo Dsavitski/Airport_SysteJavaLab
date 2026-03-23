@@ -23,6 +23,6 @@ public class Amenity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Amenities amenities;
+    private Amenities name;
 
 }

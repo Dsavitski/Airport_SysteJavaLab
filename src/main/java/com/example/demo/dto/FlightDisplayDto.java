@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.Amenities;
 import com.example.demo.FlightStatus;
 import com.example.demo.entities.Ticket;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,6 @@ public class FlightDisplayDto {
     private Long arrivalAirportCode;
     private Long airplaneId;
     private FlightStatus status;
-    private List<Long> amenityIds;
+    private List<Amenities> amenities;
     private List<Ticket> tickets;
 }

@@ -12,7 +12,7 @@ public class AmenityMapper {
             return null;
         }
         Amenity entity = new Amenity();
-        entity.setAmenities(dto.getAmenities());
+        entity.setName(dto.getAmenities());
         return entity;
     }
 
@@ -22,7 +22,7 @@ public class AmenityMapper {
         }
         AmenityDisplayDto dto = new AmenityDisplayDto();
         dto.setId(entity.getId());
-        dto.setAmenities(entity.getAmenities());
+        dto.setAmenities(entity.getName());
         return dto;
     }
 }

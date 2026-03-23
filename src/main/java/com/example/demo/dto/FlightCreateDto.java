@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
-import com.example.demo.Amenities;
+import com.example.demo.FlightStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,7 @@ public class FlightCreateDto {
     private Long departureAirportCode;
     private Long arrivalAirportCode;
     private Long airplaneId;
-    private List<Amenities> amenitiesIds;
+    private List<Long> amenities;
+    @Schema(description = "Status of the flight", allowableValues = {"SCHEDULED", "DELAYED", "CANCELLED", "COMPLETED"})
+    private FlightStatus flightStatus;
 }
