@@ -12,7 +12,9 @@ import com.example.demo.repository.AirportRepository;
 import com.example.demo.repository.AmenityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -48,7 +50,7 @@ public class FlightMapper {
         if (dto.getAmenities() != null && !dto.getAmenities().isEmpty()) {
             List<Amenity> amenities = amenityRepository.findAllById(dto.getAmenities());
             if (amenities.size() != dto.getAmenities().size()) {
-                throw new RuntimeException("Некоторые amenities не найдены");
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Некоторые amenities не найдены");
             }
             flight.setAmenities(amenities);
         }

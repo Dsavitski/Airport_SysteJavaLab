@@ -8,7 +8,6 @@ import com.example.demo.mapper.TicketMapper;
 import com.example.demo.repository.FlightRepository;
 import com.example.demo.repository.TicketRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RequiredArgsConstructor
 public class TicketService {
 
-    @Autowired
+
     private final TicketRepository ticketRepository;
     private final FlightRepository flightRepository;
     private final TicketMapper ticketMapper;
