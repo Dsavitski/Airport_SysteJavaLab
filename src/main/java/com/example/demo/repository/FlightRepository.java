@@ -17,7 +17,8 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
         "join fetch f.tickets")
     List<Flight> findAllWithFetchJoin();
 
-    @Query("SELECT f FROM Flight f JOIN f.tickets t WHERE f.flightNumber = :flightNumber AND f.departureDate = :departureDate AND t.passportNumber = :passportNumber")
+    @Query("SELECT f FROM Flight f JOIN f.tickets t WHERE f.flightNumber = :flightNumber" +
+        " AND f.departureDate = :departureDate AND t.passportNumber = :passportNumber")
     Optional<Flight> findFlightByDetailsAndPassport(@Param("flightNumber") String flightNumber,
                                                     @Param("departureDate") String departureDate,
                                                     @Param("passportNumber") String passportNumber);

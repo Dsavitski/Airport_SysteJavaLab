@@ -54,7 +54,8 @@ public class FlightController {
     public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDate(@RequestParam String flightNumber,
                                                                               @RequestParam String departureDate,
                                                                               @RequestParam String passportNumber) {
-        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber, departureDate,passportNumber);
+        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber,
+            departureDate, passportNumber);
         return ResponseEntity.ok(flightDto);
     }
 
@@ -62,7 +63,8 @@ public class FlightController {
     public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDateNative(@RequestParam String flightNumber,
                                                                               @RequestParam String departureDate,
                                                                               @RequestParam String passportNumber) {
-        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber, departureDate,passportNumber);
+        FlightDisplayDto flightDto = flightService.findFlightByDetailsAndPassportNative(flightNumber,
+            departureDate, passportNumber);
         return ResponseEntity.ok(flightDto);
     }
 

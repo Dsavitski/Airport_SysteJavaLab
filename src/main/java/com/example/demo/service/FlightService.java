@@ -48,13 +48,15 @@ public class FlightService {
             .toList();
     }
 
-    public FlightDisplayDto findByFlightNumberAndDepartureDate(String flightNumber, String departureDate,String passportNumber) {
-        FlightKey key = new FlightKey(flightNumber, departureDate,passportNumber);
+    public FlightDisplayDto findByFlightNumberAndDepartureDate(String flightNumber,
+                                                               String departureDate, String passportNumber) {
+        FlightKey key = new FlightKey(flightNumber, departureDate, passportNumber);
         Flight flight = flightIndex.get(key);
         if (flight != null) {
             return flightMapper.toDisplayDTO(flight);
         }
-        Optional<Flight> optionalFlight = flightRepository.findFlightByDetailsAndPassport(flightNumber,departureDate,passportNumber);
+        Optional<Flight> optionalFlight = flightRepository.findFlightByDetailsAndPassport(flightNumber,
+            departureDate, passportNumber);
         if (optionalFlight.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flight not found");
         }
@@ -63,8 +65,10 @@ public class FlightService {
         return flightMapper.toDisplayDTO(flight);
     }
 
-    public FlightDisplayDto findFlightByDetailsAndPassportNative(String flightNumber, String departureDate, String passportNumber) {
-        Optional<Flight> optionalFlight = flightRepository.findFlightByDetailsAndPassport(flightNumber, departureDate, passportNumber);
+    public FlightDisplayDto findFlightByDetailsAndPassportNative(String flightNumber,
+                                                                 String departureDate, String passportNumber) {
+        Optional<Flight> optionalFlight = flightRepository.findFlightByDetailsAndPassportNative(flightNumber,
+            departureDate, passportNumber);
         if (optionalFlight.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flight not found");
         }
