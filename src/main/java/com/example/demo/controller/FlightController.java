@@ -52,10 +52,21 @@ public class FlightController {
 
     @GetMapping("/search")
     public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDate(@RequestParam String flightNumber,
-                                                                         @RequestParam String departureDate) {
-        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber, departureDate);
+                                                                              @RequestParam String departureDate,
+                                                                              @RequestParam String passportNumber) {
+        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber, departureDate,passportNumber);
         return ResponseEntity.ok(flightDto);
     }
+
+    @GetMapping("/search/native")
+    public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDateNative(@RequestParam String flightNumber,
+                                                                              @RequestParam String departureDate,
+                                                                              @RequestParam String passportNumber) {
+        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber, departureDate,passportNumber);
+        return ResponseEntity.ok(flightDto);
+    }
+
+
 
 
     @GetMapping("/{id}")

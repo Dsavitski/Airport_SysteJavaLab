@@ -21,7 +21,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     @Query(value = "SELECT t.* FROM Ticket t " +
         "JOIN Flight f ON t.flight_id = f.id " +
         "WHERE f.id = :flightId",
-        countQuery = "SELECT COUNT(*) FROM Ticket t " +
+        countQuery = "" +
+            "SELECT COUNT(*) FROM Ticket t " +
             "JOIN Flight f ON t.flight_id = f.id " +
             "WHERE f.id = :flightId",
         nativeQuery = true)

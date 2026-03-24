@@ -10,6 +10,7 @@ import java.util.Objects;
 public final class FlightKey {
     String  flightNumber;
     String  departureDate;
+    String  passportNumber;
 
     @Override
     public boolean equals(Object o) {
@@ -21,11 +22,12 @@ public final class FlightKey {
         }
         FlightKey flightKey = (FlightKey) o;
         return Objects.equals(flightNumber, flightKey.flightNumber) &&
-            Objects.equals(departureDate, flightKey.departureDate);
+            Objects.equals(departureDate, flightKey.departureDate) &&
+            Objects.equals(passportNumber, flightKey.passportNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightNumber, departureDate);
+        return Objects.hash(flightNumber, departureDate, passportNumber);
     }
 }
