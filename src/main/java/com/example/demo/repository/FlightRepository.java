@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     @Query("SELECT f FROM Flight f JOIN f.tickets t WHERE f.flightNumber = :flightNumber" +
         " AND f.departureDate = :departureDate AND t.passportNumber = :passportNumber")
     Optional<Flight> findFlightByDetailsAndPassport(@Param("flightNumber") String flightNumber,
-                                                    @Param("departureDate") String departureDate,
+                                                    @Param("departureDate") LocalDate departureDate,
                                                     @Param("passportNumber") String passportNumber);
 
     @Query(value = "SELECT f.* FROM Flight f " +
@@ -29,6 +30,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
         "AND f.departure_date = :departureDate " +
         "AND t.passport_number = :passportNumber", nativeQuery = true)
     Optional<Flight> findFlightByDetailsAndPassportNative(@Param("flightNumber") String flightNumber,
-                                                    @Param("departureDate") String departureDate,
+                                                    @Param("departureDate") LocalDate departureDate,
                                                     @Param("passportNumber") String passportNumber);
 }

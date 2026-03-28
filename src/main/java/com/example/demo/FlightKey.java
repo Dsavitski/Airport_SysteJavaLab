@@ -3,14 +3,15 @@ package com.example.demo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
 @AllArgsConstructor
 public final class FlightKey {
-    String  flightNumber;
-    String  departureDate;
-    String  passportNumber;
+    private String  flightNumber;
+    private final LocalDate departureDate;
+    private String  passportNumber;
 
     @Override
     public boolean equals(Object o) {

@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,7 @@ public class FlightService {
     }
 
     public FlightDisplayDto findByFlightNumberAndDepartureDate(String flightNumber,
-                                                               String departureDate, String passportNumber) {
+                                                               LocalDate departureDate, String passportNumber) {
         FlightKey key = new FlightKey(flightNumber, departureDate, passportNumber);
         Flight flight = flightIndex.get(key);
         if (flight != null) {
@@ -66,13 +67,19 @@ public class FlightService {
     }
 
     public FlightDisplayDto findFlightByDetailsAndPassportNative(String flightNumber,
-                                                                 String departureDate, String passportNumber) {
+                                                                 LocalDate departureDate, String passportNumber) {
+        FlightKey key = new FlightKey(flightNumber, departureDate, passportNumber);
+        Flight flight = flightIndex.get(key);
+        if (flight != null) {
+            return flightMapper.toDisplayDTO(flight);
+        }
         Optional<Flight> optionalFlight = flightRepository.findFlightByDetailsAndPassportNative(flightNumber,
             departureDate, passportNumber);
         if (optionalFlight.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flight not found");
         }
-        Flight flight = optionalFlight.get();
+        flight = optionalFlight.get();
+        flightIndex.put(key, flight);
         return flightMapper.toDisplayDTO(flight);
     }
 

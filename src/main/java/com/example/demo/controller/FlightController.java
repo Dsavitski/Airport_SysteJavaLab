@@ -6,6 +6,7 @@ import com.example.demo.entities.Flight;
 import com.example.demo.mapper.FlightMapper;
 import com.example.demo.service.FlightService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -51,24 +53,24 @@ public class FlightController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDate(@RequestParam String flightNumber,
-                                                                              @RequestParam String departureDate,
-                                                                              @RequestParam String passportNumber) {
+    public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDate(
+        @RequestParam String flightNumber,
+        @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate departureDate,
+        @RequestParam String passportNumber) {
         FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber,
             departureDate, passportNumber);
         return ResponseEntity.ok(flightDto);
     }
 
     @GetMapping("/search/native")
-    public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDateNative(@RequestParam String flightNumber,
-                                                                              @RequestParam String departureDate,
-                                                                              @RequestParam String passportNumber) {
+    public ResponseEntity<FlightDisplayDto> getFlightByNumberAndDepartureDateNative(
+        @RequestParam String flightNumber,
+        @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate departureDate,
+        @RequestParam String passportNumber) {
         FlightDisplayDto flightDto = flightService.findFlightByDetailsAndPassportNative(flightNumber,
             departureDate, passportNumber);
         return ResponseEntity.ok(flightDto);
     }
-
-
 
 
     @GetMapping("/{id}")

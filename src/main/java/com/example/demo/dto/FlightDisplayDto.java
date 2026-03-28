@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -15,8 +16,8 @@ import java.util.List;
 public class FlightDisplayDto {
     private Long id;
     private String flightNumber;
-    private String departureDate;
-    private String arrivalDate;
+    private LocalDate departureDate;
+    private LocalDate arrivalDate;
     private Long departureAirportCode;
     private Long arrivalAirportCode;
     private Long airplaneId;

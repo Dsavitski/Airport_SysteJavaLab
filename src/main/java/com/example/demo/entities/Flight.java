@@ -20,6 +20,8 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +36,8 @@ public class Flight {
     private Long id;
 
     private String flightNumber;
-    private String departureDate;
-    private String arrivalDate;
+    private LocalDate departureDate;
+    private LocalDate arrivalDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "departureAirportCode")
