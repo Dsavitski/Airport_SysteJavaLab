@@ -1,5 +1,6 @@
 package com.example.demo.exception;
 
+import jakarta.annotation.Nullable;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +35,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @Override
+    @Nullable
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
         MethodArgumentNotValidException ex, HttpHeaders headers,
         HttpStatusCode status, WebRequest request) {
@@ -42,7 +44,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             .getFieldErrors()
             .stream()
             .map(FieldError::getDefaultMessage)
-            .collect(Collectors.toList());
+            .toList();
         String message = "Validation Error: " + String.join("; ", errors);
         return buildErrorResponse(ex, message, HttpStatus.BAD_REQUEST, request);
     }
@@ -54,7 +56,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         List<String> errors = ex.getConstraintViolations()
             .stream()
             .map(ConstraintViolation::getMessage)
-            .collect(Collectors.toList());
+            .toList();
         String message = "Validation Error: " + String.join("; ", errors);
         return buildErrorResponse(ex, message, HttpStatus.BAD_REQUEST, request);
     }

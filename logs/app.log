@@ -75,3 +75,99 @@
 2026-04-01 14:19:07,761 [http-nio-8080-exec-8] WARN  c.e.d.e.GlobalExceptionHandler - Client error processing request 409 Duplicate entry: passportNumber must be unique: could not execute statement [ОШИБКА: duplicate key value violates unique constraint "ticket_passport_number_key"
   Подробности: Key (passport_number)=(BM2746542) already exists.] [insert into ticket (flight_id,passenger_name,passport_number,price,seat) values (?,?,?,?,?)]; SQL [insert into ticket (flight_id,passenger_name,passport_number,price,seat) values (?,?,?,?,?)]; constraint [ticket_passport_number_key]
 2026-04-01 14:19:07,762 [http-nio-8080-exec-8] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-01 14:24:49,577 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-01 14:24:49,583 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-01 14:24:49,587 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-01 14:24:49,589 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 14:24:49,592 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 14:24:57,517 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 25.0.2 with PID 17184 (C:\Users\admin\Desktop\demo\build\classes\java\main started by admin in C:\Users\admin\Desktop\demo)
+2026-04-01 14:24:57,518 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-01 14:24:57,519 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-01 14:24:57,946 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-04-01 14:24:58,371 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-01 14:24:58,417 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 5 JPA repository interfaces.
+2026-04-01 14:24:58,899 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 14:24:58,909 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 14:24:58,911 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 14:24:58,911 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-01 14:24:58,953 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1402 ms
+2026-04-01 14:24:59,070 [main] DEBUG o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2026-04-01 14:24:59,076 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-01 14:24:59,148 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-01 14:24:59,178 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider': Failed to instantiate [org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider]: Specified class is an interface
+2026-04-01 14:24:59,562 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-01 14:24:59,588 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 14:24:59,722 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7fc56d61
+2026-04-01 14:24:59,723 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 14:24:59,749 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-01 14:24:59,771 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/airport_system]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: airport_system/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-01 14:24:59,955 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.CurrentTenantIdentifierResolver: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.CurrentTenantIdentifierResolver<?>' available
+2026-04-01 14:24:59,956 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.TenantSchemaMapper: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.TenantSchemaMapper<?>' available
+2026-04-01 14:25:00,730 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-01 14:25:00,785 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-01 14:25:01,233 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-01 14:25:03,885 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-01 14:25:04,510 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 14:25:04,527 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-01 14:25:04,531 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 7.333 seconds (process running for 7.826)
+2026-04-01 14:25:04,534 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-01 14:25:04,534 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-01 14:26:42,969 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-01 14:26:42,974 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-01 14:26:42,977 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-01 14:26:42,978 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-01 14:26:42,984 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-01 14:26:48,266 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 25.0.2 with PID 17624 (C:\Users\admin\Desktop\demo\build\classes\java\main started by admin in C:\Users\admin\Desktop\demo)
+2026-04-01 14:26:48,267 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-01 14:26:48,268 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-01 14:26:48,499 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-04-01 14:26:48,739 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-01 14:26:48,783 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 5 JPA repository interfaces.
+2026-04-01 14:26:49,126 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-01 14:26:49,134 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-01 14:26:49,134 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-01 14:26:49,134 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-01 14:26:49,166 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 873 ms
+2026-04-01 14:26:49,259 [main] DEBUG o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2026-04-01 14:26:49,264 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-01 14:26:49,296 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-01 14:26:49,309 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider': Failed to instantiate [org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider]: Specified class is an interface
+2026-04-01 14:26:49,593 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-01 14:26:49,614 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-01 14:26:49,732 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@225ac5e7
+2026-04-01 14:26:49,733 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-01 14:26:49,755 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-01 14:26:49,774 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/airport_system]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: airport_system/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-01 14:26:49,931 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.CurrentTenantIdentifierResolver: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.CurrentTenantIdentifierResolver<?>' available
+2026-04-01 14:26:49,931 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.TenantSchemaMapper: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.TenantSchemaMapper<?>' available
+2026-04-01 14:26:50,455 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-01 14:26:50,510 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-01 14:26:50,586 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-01 14:26:51,114 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-01 14:26:51,431 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-01 14:26:51,441 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-01 14:26:51,445 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.385 seconds (process running for 3.837)
+2026-04-01 14:26:51,446 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-01 14:26:51,446 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
