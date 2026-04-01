@@ -20,7 +20,6 @@ import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @ControllerAdvice
 @Slf4j
@@ -36,7 +35,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-        MethodArgumentNotValidException ex, HttpHeaders headers,
+        MethodArgumentNotValidException ex, @Nullable HttpHeaders headers,
         HttpStatusCode status, WebRequest request) {
 
         List<String> errors = ex.getBindingResult()
