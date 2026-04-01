@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AirplaneCreateDto;
 import com.example.demo.dto.AirplaneDisplayDto;
 import com.example.demo.service.AirplaneService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class AirplaneController {
     private final AirplaneService airplaneService;
 
     @PostMapping
-    public ResponseEntity<AirplaneDisplayDto> createAirplane(@RequestBody AirplaneCreateDto dto) {
+    public ResponseEntity<AirplaneDisplayDto> createAirplane(@Valid @RequestBody AirplaneCreateDto dto) {
         AirplaneDisplayDto created = airplaneService.createAirplane(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }

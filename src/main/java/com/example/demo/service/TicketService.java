@@ -4,15 +4,14 @@ import com.example.demo.entities.Flight;
 import com.example.demo.entities.Ticket;
 import com.example.demo.dto.TicketCreateDto;
 import com.example.demo.dto.TicketDisplayDto;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.mapper.TicketMapper;
 import com.example.demo.repository.FlightRepository;
 import com.example.demo.repository.TicketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 
 
@@ -28,13 +27,11 @@ public class TicketService {
 
     public TicketDisplayDto createTicket(TicketCreateDto dto, Long flightId) {
         Flight flight = flightRepository.findById(flightId)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket is not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("Flight with id " + flightId + " is not found"));
         Ticket ticket = ticketMapper.toEntity(dto, flight);
         Ticket savedTicket = ticketRepository.save(ticket);
         return ticketMapper.toDisplayDto(savedTicket);
     }
-
 
     public Page<Ticket> getTicketsByFlightId(Long flightId, Pageable pageable) {
         return ticketRepository.findByFlightFlightId(flightId, pageable);
@@ -43,16 +40,11 @@ public class TicketService {
         return ticketRepository.findByFlightFlightIdNative(flightId, pageable);
     }
 
-
-
-
     public TicketDisplayDto updateTicket(Long id, TicketCreateDto dto, Long flightId) {
         Ticket existingTicket = ticketRepository.findById(id)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket not found!"));
+            .orElseThrow(() -> new ResourceNotFoundException("Ticket with id " + id + " is not found"));
         Flight flight = flightRepository.findById(flightId)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket not found!!!"));
+            .orElseThrow(() -> new ResourceNotFoundException("Flight with id " + flightId + " isn`t found"));
         existingTicket.setPassportNumber(dto.getPassportNumber());
         existingTicket.setPassengerName(dto.getPassengerName());
         existingTicket.setSeat(dto.getSeat());
@@ -64,8 +56,7 @@ public class TicketService {
 
     public void deleteTicket(Long id) {
         if (!ticketRepository.existsById(id)) {
-            throw new ResponseStatusException(HttpStatus
-                .NOT_FOUND, "Ticket is not found!");
+            throw new ResourceNotFoundException("Ticket with id " + id + " is not found");
         }
         ticketRepository.deleteById(id);
     }

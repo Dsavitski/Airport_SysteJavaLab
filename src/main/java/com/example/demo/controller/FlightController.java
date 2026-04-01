@@ -5,6 +5,7 @@ import com.example.demo.dto.FlightDisplayDto;
 import com.example.demo.entities.Flight;
 import com.example.demo.mapper.FlightMapper;
 import com.example.demo.service.FlightService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class FlightController {
     private final FlightMapper flightMapper;
 
     @PostMapping
-    public ResponseEntity<FlightDisplayDto> createFlight(@RequestBody FlightCreateDto dto) {
+    public ResponseEntity<FlightDisplayDto> createFlight(@Valid @RequestBody FlightCreateDto dto) {
         FlightDisplayDto createdFlight = flightService.createFlight(dto);
         return new ResponseEntity<>(createdFlight, HttpStatus.CREATED);
     }

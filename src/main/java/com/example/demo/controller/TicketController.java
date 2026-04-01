@@ -4,6 +4,7 @@ import com.example.demo.dto.TicketCreateDto;
 import com.example.demo.dto.TicketDisplayDto;
 import com.example.demo.entities.Ticket;
 import com.example.demo.service.TicketService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,7 +30,7 @@ public class TicketController {
     private final TicketService ticketService;
 
     @PostMapping("/{flightId}")
-    public ResponseEntity<TicketDisplayDto> createTicket(@RequestBody TicketCreateDto dto,
+    public ResponseEntity<TicketDisplayDto> createTicket(@Valid @RequestBody TicketCreateDto dto,
                                                          @PathVariable Long flightId) {
         TicketDisplayDto created = ticketService.createTicket(dto, flightId);
         return new ResponseEntity<>(created, HttpStatus.CREATED);

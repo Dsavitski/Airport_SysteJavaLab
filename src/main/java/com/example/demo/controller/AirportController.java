@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AirportCreateDto;
 import com.example.demo.dto.AirportDisplayDto;
 import com.example.demo.service.AirportService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class AirportController {
     private final AirportService airportService;
 
     @PostMapping
-    public ResponseEntity<AirportDisplayDto> createAirport(@RequestBody AirportCreateDto dto) {
+    public ResponseEntity<AirportDisplayDto> createAirport(@Valid @RequestBody AirportCreateDto dto) {
         AirportDisplayDto created = airportService.createAirport(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }

@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AmenityCreateDto;
 import com.example.demo.dto.AmenityDisplayDto;
 import com.example.demo.service.AmenityService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class AmenityController {
     private final AmenityService amenityService;
 
     @PostMapping
-    public ResponseEntity<AmenityDisplayDto> createAmenity(@RequestBody AmenityCreateDto dto) {
+    public ResponseEntity<AmenityDisplayDto> createAmenity(@Valid @RequestBody AmenityCreateDto dto) {
         AmenityDisplayDto created = amenityService.createAmenity(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
