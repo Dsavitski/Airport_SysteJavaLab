@@ -4,6 +4,9 @@ import com.example.demo.dto.TicketCreateDto;
 import com.example.demo.dto.TicketDisplayDto;
 import com.example.demo.entities.Ticket;
 import com.example.demo.service.TicketService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -29,6 +32,11 @@ public class TicketController {
 
     private final TicketService ticketService;
 
+    @Operation(summary = "Создать билет", description = "Создает новый билет для указанного рейса.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "Билет успешно создан"),
+        @ApiResponse(responseCode = "400", description = "Некорректные данные")
+    })
     @PostMapping("/{flightId}")
     public ResponseEntity<TicketDisplayDto> createTicket(@Valid @RequestBody TicketCreateDto dto,
                                                          @PathVariable Long flightId) {
@@ -36,7 +44,10 @@ public class TicketController {
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
-
+    @Operation(summary = "Получить билеты по ID рейса", description = "Возвращает страницу билетов по ID рейса.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Успешное получение билетов")
+    })
     @GetMapping
     public Page<Ticket> getTicketsByFlightId(
         @RequestParam Long flightId,
@@ -46,8 +57,11 @@ public class TicketController {
         return ticketService.getTicketsByFlightId(flightId, pageable);
     }
 
-
-
+    @Operation(summary = "Получить билеты по ID рейса (native query)", description =
+        "Получает билеты по ID рейса с использованием native SQL.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Успешное получение билетов")
+    })
     @GetMapping("/NativeQuery")
     public Page<Ticket> getTicketsByFlightIdNative(
         @RequestParam Long flightId,
@@ -57,7 +71,11 @@ public class TicketController {
         return ticketService.getTicketsByFlightIdNative(flightId, pageable);
     }
 
-
+    @Operation(summary = "Обновить билет", description = "Обновляет информацию о билете по его ID и ID рейса.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Билет успешно обновлен"),
+        @ApiResponse(responseCode = "404", description = "Билет или рейс не найден")
+    })
     @PutMapping("/{id}/{flightId}")
     public ResponseEntity<TicketDisplayDto> updateTicket(@PathVariable Long id,
                                                          @RequestBody TicketCreateDto dto,
@@ -65,6 +83,11 @@ public class TicketController {
         return ResponseEntity.ok(ticketService.updateTicket(id, dto, flightId));
     }
 
+    @Operation(summary = "Удалить билет", description = "Удаляет билет по его ID.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "204", description = "Билет успешно удален"),
+        @ApiResponse(responseCode = "404", description = "Билет не найден")
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTicket(@PathVariable Long id) {
         ticketService.deleteTicket(id);
