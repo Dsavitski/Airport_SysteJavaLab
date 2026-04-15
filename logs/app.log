@@ -850,3 +850,352 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: update or delete on 
 2026-04-15 10:52:34,360 [Test worker] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
 2026-04-15 10:52:34,371 [Test worker] INFO  c.e.demo.service.AmenityService - Start transaction...
 2026-04-15 10:52:34,375 [Test worker] INFO  c.e.demo.service.AmenityService - Start transaction...
+2026-04-15 11:32:16,455 [Test worker] INFO  c.e.demo.service.AirportService - Start transaction...
+2026-04-15 11:32:16,469 [Test worker] INFO  c.e.demo.service.AirportService - Start transaction...
+2026-04-15 11:32:16,509 [Test worker] INFO  c.e.demo.service.AirportService - Start transaction...
+2026-04-15 11:32:16,603 [Test worker] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:32:16,610 [Test worker] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:32:16,623 [Test worker] INFO  c.e.demo.service.AmenityService - Start transaction...
+2026-04-15 11:32:16,625 [Test worker] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:32:16,635 [Test worker] INFO  c.e.demo.service.AmenityService - Start transaction...
+2026-04-15 11:32:16,638 [Test worker] INFO  c.e.demo.service.AmenityService - Start transaction...
+2026-04-15 11:32:32,977 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 25.0.2 with PID 14164 (C:\Users\admin\Desktop\demo\build\classes\java\main started by admin in C:\Users\admin\Desktop\demo)
+2026-04-15 11:32:32,979 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-15 11:32:32,979 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 11:32:33,301 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-04-15 11:32:33,600 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15 11:32:33,651 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 5 JPA repository interfaces.
+2026-04-15 11:32:34,032 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-15 11:32:34,046 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-15 11:32:34,047 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 11:32:34,047 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-15 11:32:34,081 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1072 ms
+2026-04-15 11:32:34,187 [main] DEBUG o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2026-04-15 11:32:34,194 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-15 11:32:34,247 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-15 11:32:34,268 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider': Failed to instantiate [org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider]: Specified class is an interface
+2026-04-15 11:32:34,575 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15 11:32:34,600 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-15 11:32:34,728 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56554365
+2026-04-15 11:32:34,729 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-15 11:32:34,764 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15 11:32:34,785 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/airport_system]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: airport_system/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-15 11:32:34,952 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.CurrentTenantIdentifierResolver: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.CurrentTenantIdentifierResolver<?>' available
+2026-04-15 11:32:34,953 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.TenantSchemaMapper: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.TenantSchemaMapper<?>' available
+2026-04-15 11:32:35,554 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15 11:32:35,640 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15 11:32:35,722 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15 11:32:36,334 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15 11:32:36,647 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-15 11:32:36,662 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-15 11:32:36,666 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.931 seconds (process running for 4.501)
+2026-04-15 11:32:36,667 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-15 11:32:36,667 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-15 11:32:41,183 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15 11:32:41,183 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-15 11:32:41,184 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-15 11:32:41,201 [http-nio-8080-exec-1] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,214 [http-nio-8080-exec-1] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,227 [http-nio-8080-exec-7] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,258 [http-nio-8080-exec-7] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,281 [http-nio-8080-exec-2] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,310 [http-nio-8080-exec-2] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,326 [http-nio-8080-exec-5] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:32:41,582 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 247 ms
+2026-04-15 11:32:41,594 [http-nio-8080-exec-5] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:11,319 [http-nio-8080-exec-6] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:11,416 [http-nio-8080-exec-6] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:18,970 [http-nio-8080-exec-4] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:19,053 [http-nio-8080-exec-4] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:33:19,058 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(2043556330<open>)] for JPA transaction
+2026-04-15 11:33:19,058 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:33:19,062 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@d046999]
+2026-04-15 11:33:19,124 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:33:19,125 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(2043556330<open>)]
+2026-04-15 11:33:19,135 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:33:19,135 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(2043556330<open>)] for JPA transaction
+2026-04-15 11:33:19,135 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:33:19,135 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@19970064]
+2026-04-15 11:33:19,136 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:33:19,137 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(2043556330<open>)]
+2026-04-15 11:33:19,137 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:33:19,138 [http-nio-8080-exec-4] INFO  c.e.demo.aop.ServiceTimingAspect - Method List com.example.demo.service.AmenityService.createAmenitiesBulkWithoutTransaction(List) executed in 84 ms
+2026-04-15 11:33:19,144 [http-nio-8080-exec-4] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:24,071 [http-nio-8080-exec-10] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:24,072 [http-nio-8080-exec-10] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:33:24,073 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1590160322<open>)] for JPA transaction
+2026-04-15 11:33:24,073 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:33:24,073 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@27eecdc9]
+2026-04-15 11:33:24,075 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:33:24,075 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1590160322<open>)]
+2026-04-15 11:33:24,078 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:33:24,080 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1590160322<open>)] for JPA transaction
+2026-04-15 11:33:24,081 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:33:24,081 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5f106d56]
+2026-04-15 11:33:24,083 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:33:24,083 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1590160322<open>)]
+2026-04-15 11:33:24,084 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:33:24,084 [http-nio-8080-exec-10] INFO  c.e.demo.aop.ServiceTimingAspect - Method List com.example.demo.service.AmenityService.createAmenitiesBulkWithoutTransaction(List) executed in 12 ms
+2026-04-15 11:33:24,085 [http-nio-8080-exec-10] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:36,126 [http-nio-8080-exec-9] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:33:36,128 [http-nio-8080-exec-9] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:33:36,128 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1312154572<open>)] for JPA transaction
+2026-04-15 11:33:36,129 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:33:36,129 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@373eef43]
+2026-04-15 11:33:36,130 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:33:36,130 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1312154572<open>)]
+2026-04-15 11:33:36,133 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:33:36,134 [http-nio-8080-exec-9] WARN  c.e.d.e.GlobalExceptionHandler - Client error processing request 400 Simulated error in non-transactional method: Simulated error in non-transactional method
+2026-04-15 11:33:36,137 [http-nio-8080-exec-9] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:35:29,109 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-15 11:35:29,114 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-15 11:35:29,117 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15 11:35:29,119 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-15 11:35:29,122 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-15 11:35:45,627 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 25.0.2 with PID 12304 (C:\Users\admin\Desktop\demo\build\classes\java\main started by admin in C:\Users\admin\Desktop\demo)
+2026-04-15 11:35:45,628 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-15 11:35:45,628 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 11:35:45,841 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-04-15 11:35:46,111 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15 11:35:46,147 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 5 JPA repository interfaces.
+2026-04-15 11:35:46,477 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-15 11:35:46,485 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-15 11:35:46,487 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 11:35:46,487 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-15 11:35:46,520 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 866 ms
+2026-04-15 11:35:46,613 [main] DEBUG o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2026-04-15 11:35:46,617 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-15 11:35:46,649 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-15 11:35:46,661 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider': Failed to instantiate [org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider]: Specified class is an interface
+2026-04-15 11:35:46,941 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15 11:35:46,962 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-15 11:35:47,081 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52b891de
+2026-04-15 11:35:47,082 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-15 11:35:47,104 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15 11:35:47,120 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/airport_system]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: airport_system/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-15 11:35:47,265 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.CurrentTenantIdentifierResolver: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.CurrentTenantIdentifierResolver<?>' available
+2026-04-15 11:35:47,265 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.TenantSchemaMapper: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.TenantSchemaMapper<?>' available
+2026-04-15 11:35:47,797 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15 11:35:47,859 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15 11:35:47,941 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15 11:35:48,556 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15 11:35:48,874 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-15 11:35:48,890 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-15 11:35:48,893 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.465 seconds (process running for 4.046)
+2026-04-15 11:35:48,895 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-15 11:35:48,895 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-15 11:36:02,337 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15 11:36:02,337 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-15 11:36:02,337 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-04-15 11:36:02,349 [http-nio-8080-exec-1] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:02,447 [http-nio-8080-exec-1] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 11:36:02,450 [http-nio-8080-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(158815553<open>)] for JPA transaction
+2026-04-15 11:36:02,450 [http-nio-8080-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:02,453 [http-nio-8080-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5a700d71]
+2026-04-15 11:36:02,485 [http-nio-8080-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:02,485 [http-nio-8080-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(158815553<open>)]
+2026-04-15 11:36:02,494 [http-nio-8080-exec-1] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:02,496 [http-nio-8080-exec-1] WARN  c.e.d.e.GlobalExceptionHandler - Client error processing request 400 Simulated error in non-transactional method: Simulated error in non-transactional method
+2026-04-15 11:36:02,518 [http-nio-8080-exec-1] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:26,805 [http-nio-8080-exec-6] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:26,807 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(750003651<open>)] for JPA transaction
+2026-04-15 11:36:26,808 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.example.demo.service.AmenityService.createAmenitiesBulkTransactional]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:26,809 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2f12beb8]
+2026-04-15 11:36:26,809 [http-nio-8080-exec-6] INFO  c.e.demo.service.AmenityService - Start transaction...
+2026-04-15 11:36:26,810 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(750003651<open>)] for JPA transaction
+2026-04-15 11:36:26,810 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2026-04-15 11:36:26,811 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction rollback
+2026-04-15 11:36:26,812 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Rolling back JPA transaction on EntityManager [SessionImpl(750003651<open>)]
+2026-04-15 11:36:26,815 [http-nio-8080-exec-6] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:26,816 [http-nio-8080-exec-6] WARN  c.e.d.e.GlobalExceptionHandler - Client error processing request 400 Simulated error in transactional method: Simulated error in transactional method
+2026-04-15 11:36:26,818 [http-nio-8080-exec-6] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:42,486 [http-nio-8080-exec-2] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:42,494 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1159547322<open>)] for JPA transaction
+2026-04-15 11:36:42,494 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.existsById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-04-15 11:36:42,496 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5ee2b7e6]
+2026-04-15 11:36:42,557 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:42,557 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1159547322<open>)]
+2026-04-15 11:36:42,558 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:42,558 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1159547322<open>)] for JPA transaction
+2026-04-15 11:36:42,558 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:42,558 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@29e57f56]
+2026-04-15 11:36:42,577 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:42,577 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1159547322<open>)]
+2026-04-15 11:36:42,586 [http-nio-8080-exec-2] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:42,587 [http-nio-8080-exec-2] INFO  c.e.demo.aop.ServiceTimingAspect - Method void com.example.demo.service.AmenityService.deleteAmenity(Long) executed in 92 ms
+2026-04-15 11:36:42,595 [http-nio-8080-exec-2] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:46,540 [http-nio-8080-exec-9] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:46,540 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1068804047<open>)] for JPA transaction
+2026-04-15 11:36:46,540 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.existsById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-04-15 11:36:46,541 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@31734e49]
+2026-04-15 11:36:46,543 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:46,543 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1068804047<open>)]
+2026-04-15 11:36:46,544 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:46,544 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1068804047<open>)] for JPA transaction
+2026-04-15 11:36:46,544 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:46,544 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@4174157f]
+2026-04-15 11:36:46,545 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:46,545 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1068804047<open>)]
+2026-04-15 11:36:46,550 [http-nio-8080-exec-9] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:46,550 [http-nio-8080-exec-9] INFO  c.e.demo.aop.ServiceTimingAspect - Method void com.example.demo.service.AmenityService.deleteAmenity(Long) executed in 10 ms
+2026-04-15 11:36:46,551 [http-nio-8080-exec-9] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:49,528 [http-nio-8080-exec-3] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:49,529 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(209514748<open>)] for JPA transaction
+2026-04-15 11:36:49,529 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.existsById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-04-15 11:36:49,530 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2bb0f03]
+2026-04-15 11:36:49,531 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:49,531 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(209514748<open>)]
+2026-04-15 11:36:49,531 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:49,532 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(209514748<open>)] for JPA transaction
+2026-04-15 11:36:49,532 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:49,532 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@6849b8c]
+2026-04-15 11:36:49,533 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:49,533 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(209514748<open>)]
+2026-04-15 11:36:49,536 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:49,536 [http-nio-8080-exec-3] INFO  c.e.demo.aop.ServiceTimingAspect - Method void com.example.demo.service.AmenityService.deleteAmenity(Long) executed in 7 ms
+2026-04-15 11:36:49,537 [http-nio-8080-exec-3] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:52,748 [http-nio-8080-exec-4] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:52,748 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(706988396<open>)] for JPA transaction
+2026-04-15 11:36:52,748 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.existsById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-04-15 11:36:52,749 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@24e42258]
+2026-04-15 11:36:52,750 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:52,750 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(706988396<open>)]
+2026-04-15 11:36:52,751 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:52,751 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(706988396<open>)] for JPA transaction
+2026-04-15 11:36:52,751 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:52,752 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@20dba21c]
+2026-04-15 11:36:52,753 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:52,753 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(706988396<open>)]
+2026-04-15 11:36:52,757 [http-nio-8080-exec-4] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:52,758 [http-nio-8080-exec-4] INFO  c.e.demo.aop.ServiceTimingAspect - Method void com.example.demo.service.AmenityService.deleteAmenity(Long) executed in 10 ms
+2026-04-15 11:36:52,758 [http-nio-8080-exec-4] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:55,286 [http-nio-8080-exec-8] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:55,286 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(813800721<open>)] for JPA transaction
+2026-04-15 11:36:55,286 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.existsById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-04-15 11:36:55,287 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@3e466571]
+2026-04-15 11:36:55,289 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:55,289 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(813800721<open>)]
+2026-04-15 11:36:55,289 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:55,289 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(813800721<open>)] for JPA transaction
+2026-04-15 11:36:55,290 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:55,290 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@7f7b6f4a]
+2026-04-15 11:36:55,291 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:55,291 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(813800721<open>)]
+2026-04-15 11:36:55,296 [http-nio-8080-exec-8] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:55,296 [http-nio-8080-exec-8] INFO  c.e.demo.aop.ServiceTimingAspect - Method void com.example.demo.service.AmenityService.deleteAmenity(Long) executed in 10 ms
+2026-04-15 11:36:55,297 [http-nio-8080-exec-8] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:57,897 [http-nio-8080-exec-7] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:36:57,898 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1820413176<open>)] for JPA transaction
+2026-04-15 11:36:57,898 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.existsById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2026-04-15 11:36:57,899 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@6246af18]
+2026-04-15 11:36:57,900 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:57,900 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1820413176<open>)]
+2026-04-15 11:36:57,901 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:57,901 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1820413176<open>)] for JPA transaction
+2026-04-15 11:36:57,901 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.deleteById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 11:36:57,901 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@66792788]
+2026-04-15 11:36:57,902 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 11:36:57,903 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1820413176<open>)]
+2026-04-15 11:36:57,906 [http-nio-8080-exec-7] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 11:36:57,906 [http-nio-8080-exec-7] INFO  c.e.demo.aop.ServiceTimingAspect - Method void com.example.demo.service.AmenityService.deleteAmenity(Long) executed in 8 ms
+2026-04-15 11:36:57,907 [http-nio-8080-exec-7] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 11:42:48,777 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-15 11:42:48,783 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-15 11:42:48,786 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15 11:42:48,788 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-15 11:42:48,790 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-15 12:17:57,048 [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication using Java 25.0.2 with PID 18224 (C:\Users\admin\Desktop\demo\build\classes\java\main started by admin in C:\Users\admin\Desktop\demo)
+2026-04-15 12:17:57,049 [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-04-15 12:17:57,050 [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 12:17:57,275 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-04-15 12:17:57,550 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-15 12:17:57,588 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 5 JPA repository interfaces.
+2026-04-15 12:17:57,924 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-15 12:17:57,932 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-15 12:17:57,933 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 12:17:57,933 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-15 12:17:57,966 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 890 ms
+2026-04-15 12:17:58,059 [main] DEBUG o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2026-04-15 12:17:58,063 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-04-15 12:17:58,096 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-04-15 12:17:58,109 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider': Failed to instantiate [org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider]: Specified class is an interface
+2026-04-15 12:17:58,391 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-15 12:17:58,412 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-15 12:17:58,512 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ae6451d
+2026-04-15 12:17:58,513 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-15 12:17:58,533 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-15 12:17:58,550 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/airport_system]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: airport_system/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-04-15 12:17:58,700 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.CurrentTenantIdentifierResolver: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.CurrentTenantIdentifierResolver<?>' available
+2026-04-15 12:17:58,701 [main] DEBUG o.s.o.j.h.SpringBeanContainer - Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.context.spi.TenantSchemaMapper: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.hibernate.context.spi.TenantSchemaMapper<?>' available
+2026-04-15 12:17:59,228 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-15 12:17:59,278 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15 12:17:59,355 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-15 12:17:59,891 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-15 12:18:00,202 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-15 12:18:00,213 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-15 12:18:00,222 [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 3.37 seconds (process running for 3.868)
+2026-04-15 12:18:00,224 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-04-15 12:18:00,224 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-04-15 12:18:12,322 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-15 12:18:12,323 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-15 12:18:12,324 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-15 12:18:12,341 [http-nio-8080-exec-3] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 12:18:12,496 [http-nio-8080-exec-3] INFO  c.e.demo.service.AmenityService - Start non-transactional batch...
+2026-04-15 12:18:12,501 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(2005282670<open>)] for JPA transaction
+2026-04-15 12:18:12,501 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 12:18:12,505 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@3c97a31]
+2026-04-15 12:18:12,556 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2026-04-15 12:18:12,556 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(2005282670<open>)]
+2026-04-15 12:18:12,568 [http-nio-8080-exec-3] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 12:18:12,571 [http-nio-8080-exec-3] WARN  c.e.d.e.GlobalExceptionHandler - Client error processing request 400 Simulated error in non-transactional method: Simulated error in non-transactional method
+2026-04-15 12:18:12,608 [http-nio-8080-exec-3] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 12:22:41,729 [http-nio-8080-exec-10] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 12:22:41,731 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1059761928<open>)] for JPA transaction
+2026-04-15 12:22:41,732 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.example.demo.service.AmenityService.createAmenitiesBulkTransactional]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-04-15 12:22:41,736 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@7a35e80b]
+2026-04-15 12:22:41,736 [http-nio-8080-exec-10] INFO  c.e.demo.service.AmenityService - Start transaction...
+2026-04-15 12:22:41,737 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1059761928<open>)] for JPA transaction
+2026-04-15 12:22:41,737 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2026-04-15 12:22:41,739 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Initiating transaction rollback
+2026-04-15 12:22:41,740 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Rolling back JPA transaction on EntityManager [SessionImpl(1059761928<open>)]
+2026-04-15 12:22:41,741 [http-nio-8080-exec-10] DEBUG o.s.orm.jpa.JpaTransactionManager - Not closing pre-bound JPA EntityManager after transaction
+2026-04-15 12:22:41,742 [http-nio-8080-exec-10] WARN  c.e.d.e.GlobalExceptionHandler - Client error processing request 400 Simulated error in transactional method: Simulated error in transactional method
+2026-04-15 12:22:41,744 [http-nio-8080-exec-10] DEBUG o.s.o.j.s.OpenEntityManagerInViewInterceptor - Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-04-15 12:29:32,316 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-15 12:29:32,321 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-15 12:29:32,324 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-15 12:29:32,325 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-15 12:29:32,328 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
