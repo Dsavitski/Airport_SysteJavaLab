@@ -117,8 +117,11 @@ class FlightServiceTest {
         when(flightRepository.findFlightByDetailsAndPassport(any(), any(), any()))
             .thenReturn(Optional.empty());
 
+        LocalDate date = LocalDate.now();
+
         assertThrows(ResourceNotFoundException.class,
-            () -> {flightService.findByFlightNumberAndDepartureDate("SU1", LocalDate.now(), "P1");});
+            () -> flightService.findByFlightNumberAndDepartureDate("SU1", date, "P1")
+        );
     }
 
     @Test
@@ -146,8 +149,10 @@ class FlightServiceTest {
         when(flightRepository.findFlightByDetailsAndPassportNative(any(), any(), any()))
             .thenReturn(Optional.empty());
 
+        LocalDate date = LocalDate.now();
+
         assertThrows(ResourceNotFoundException.class,
-            () -> flightService.findFlightByDetailsAndPassportNative("SU1", LocalDate.now(), "P1")
+            () -> flightService.findFlightByDetailsAndPassportNative("SU1", date, "P1")
         );
     }
 
