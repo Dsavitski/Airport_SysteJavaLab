@@ -34,7 +34,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @Override
-    @SuppressWarnings("NullableProblems")
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
         MethodArgumentNotValidException ex, @Nullable HttpHeaders headers,
         HttpStatusCode status, WebRequest request) {

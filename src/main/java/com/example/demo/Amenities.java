@@ -5,5 +5,6 @@ public enum Amenities {
     ECONOMY_LUNCH,
     BUSINESS_LUNCH,
     LINEN,
-    HEADPHONES
+    HEADPHONES,
+    ErrorName
 }

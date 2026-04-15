@@ -38,16 +38,16 @@ public class AirportController {
         AirportDisplayDto created = airportService.createAirport(dto);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
-
-    @Operation(summary = "Создать аэропорты транзакционно", description = "Создает список аэропортов в транзакции.")
+    @Operation(summary = "Создать аэропорты транзакционно (bulk)", description =
+        "Создает список аэропортов в транзакции.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Аэропорты успешно созданы"),
         @ApiResponse(responseCode = "400", description = "Некорректные данные")
     })
-    @PostMapping("/create-transactional")
-    public ResponseEntity<AirportDisplayDto> createAirportTransactional(@RequestBody List<AirportCreateDto> dto) {
-        airportService.createAirportsTransactional(dto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @PostMapping("/create-transactional/bulk")
+    public ResponseEntity<List<AirportDisplayDto>> createAirportsBulk(@RequestBody List<@Valid AirportCreateDto> dtos) {
+        List<AirportDisplayDto> createdAirports = airportService.createAirportsBulkTransactinal(dtos);
+        return new ResponseEntity<>(createdAirports, HttpStatus.CREATED);
     }
 
     @Operation(summary = "Создать аэропорты без транзакции", description = "Создает список аэропортов без транзакции.")
@@ -55,10 +55,10 @@ public class AirportController {
         @ApiResponse(responseCode = "201", description = "Аэропорты успешно созданы"),
         @ApiResponse(responseCode = "400", description = "Некорректные данные")
     })
-    @PostMapping("/create-no-transaction")
-    public ResponseEntity<AirportDisplayDto> createAirportNoTransaction(@RequestBody List<AirportCreateDto> dto) {
-        airportService.createAirportsNoTransaction(dto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @PostMapping("/create-no-transaction/bulk")
+    public ResponseEntity<List<AirportDisplayDto>> createAirportNoTransaction(@RequestBody List<AirportCreateDto> dto) {
+        List<AirportDisplayDto> createdAirports = airportService.createAirportsBulk(dto);
+        return new ResponseEntity<>(createdAirports, HttpStatus.CREATED);
     }
 
     @Operation(summary = "Получить все аэропорты", description = "Возвращает список всех аэропортов.")
