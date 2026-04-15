@@ -52,7 +52,6 @@ class AirportServiceTest {
         displayDto.setCountry("France");
     }
 
-    // -------- CREATE --------
     @Test
     void createAirport_success() {
         when(airportMapper.toEntity(createDto)).thenReturn(airport);
@@ -67,7 +66,6 @@ class AirportServiceTest {
         verify(airportMapper).toDisplayDto(airport);
     }
 
-    // -------- BULK TRANSACTIONAL --------
     @Test
     void createAirportsBulkTransactional_success() {
         when(airportMapper.toEntity(createDto)).thenReturn(airport);
@@ -104,7 +102,6 @@ class AirportServiceTest {
             () -> airportService.createAirportsBulkTransactinal(list));
     }
 
-    // -------- BULK NON-TRANSACTIONAL --------
     @Test
     void createAirportsBulk_success() {
         when(airportMapper.toEntity(createDto)).thenReturn(airport);
@@ -141,7 +138,6 @@ class AirportServiceTest {
             () -> airportService.createAirportsBulk(dtos));
     }
 
-    // -------- GET ALL --------
     @Test
     void getAllAirports_success() {
         when(airportRepository.findAll()).thenReturn(List.of(airport));
@@ -153,7 +149,6 @@ class AirportServiceTest {
         verify(airportMapper).toDisplayDto(airport);
     }
 
-    // -------- GET BY ID --------
     @Test
     void getAirportByCode_success() {
         when(airportRepository.findById(1L)).thenReturn(Optional.of(airport));
@@ -172,7 +167,6 @@ class AirportServiceTest {
             () -> airportService.getAirportByCode(1L));
     }
 
-    // -------- UPDATE --------
     @Test
     void updateAirport_success() {
         AirportCreateDto updateDto = new AirportCreateDto();
@@ -198,7 +192,6 @@ class AirportServiceTest {
             () -> airportService.updateAirport(1L, createDto));
     }
 
-    // -------- DELETE --------
     @Test
     void deleteAirport_success() {
         when(airportRepository.existsById(1L)).thenReturn(true);
