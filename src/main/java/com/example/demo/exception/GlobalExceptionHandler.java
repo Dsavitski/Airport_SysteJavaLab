@@ -35,14 +35,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-        MethodArgumentNotValidException ex, @Nullable HttpHeaders headers,
-        HttpStatusCode status, WebRequest request) {
+        MethodArgumentNotValidException ex,
+        HttpHeaders headers,
+        HttpStatusCode status,
+        WebRequest request) {
 
         List<String> errors = ex.getBindingResult()
             .getFieldErrors()
             .stream()
             .map(FieldError::getDefaultMessage)
             .toList();
+
         String message = "Validation Error: " + String.join("; ", errors);
         return buildErrorResponse(ex, message, HttpStatus.BAD_REQUEST, request);
     }

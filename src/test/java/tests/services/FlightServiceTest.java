@@ -147,7 +147,8 @@ class FlightServiceTest {
             .thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class,
-            () -> {flightService.findFlightByDetailsAndPassportNative("SU1", LocalDate.now(), "P1");});
+            () -> flightService.findFlightByDetailsAndPassportNative("SU1", LocalDate.now(), "P1")
+        );
     }
 
     @Test

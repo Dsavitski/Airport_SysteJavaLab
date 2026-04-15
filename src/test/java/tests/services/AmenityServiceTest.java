@@ -98,8 +98,10 @@ class AmenityServiceTest {
         AmenityCreateDto dto = new AmenityCreateDto();
         dto.setAmenities(Amenities.ERRORNAME);
 
+        List<AmenityCreateDto> dtos = List.of(dto);
+
         assertThrows(BadRequestException.class,
-            () -> {amenityService.createAmenitiesBulkTransactional(List.of(dto));});
+            () -> amenityService.createAmenitiesBulkTransactional(dtos));
     }
 
     @Test
@@ -127,9 +129,10 @@ class AmenityServiceTest {
     void createAmenitiesBulkWithoutTransaction_errorName() {
         AmenityCreateDto dto = new AmenityCreateDto();
         dto.setAmenities(Amenities.ERRORNAME);
+        List<AmenityCreateDto> dtos = List.of(dto);
 
         assertThrows(BadRequestException.class,
-            () -> {amenityService.createAmenitiesBulkWithoutTransaction(List.of(dto));});
+            () -> amenityService.createAmenitiesBulkWithoutTransaction(dtos));
     }
 
     @Test

@@ -98,8 +98,10 @@ class AirportServiceTest {
         AirportCreateDto badDto = new AirportCreateDto();
         badDto.setCity("ErrorCity");
 
+        List<AirportCreateDto> list = List.of(badDto);
+
         assertThrows(BadRequestException.class,
-            () -> airportService.createAirportsBulkTransactinal(List.of(badDto)));
+            () -> airportService.createAirportsBulkTransactinal(list));
     }
 
     // -------- BULK NON-TRANSACTIONAL --------
@@ -133,8 +135,10 @@ class AirportServiceTest {
         AirportCreateDto badDto = new AirportCreateDto();
         badDto.setCity("ErrorCity");
 
+        List<AirportCreateDto> dtos = List.of(badDto);
+
         assertThrows(BadRequestException.class,
-            () -> airportService.createAirportsBulk(List.of(badDto)));
+            () -> airportService.createAirportsBulk(dtos));
     }
 
     // -------- GET ALL --------
