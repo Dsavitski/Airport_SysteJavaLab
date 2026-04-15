@@ -1,4 +1,5 @@
-import com.example.demo.FlightKey;
+package tests.services;
+
 import com.example.demo.dto.FlightCreateDto;
 import com.example.demo.dto.FlightDisplayDto;
 import com.example.demo.entities.Flight;
@@ -85,8 +86,6 @@ class FlightServiceTest {
         LocalDate date = LocalDate.now();
         String passport = "123";
 
-        FlightKey key = new FlightKey(number, date, passport);
-
         when(flightRepository.findFlightByDetailsAndPassport(number, date, passport))
             .thenReturn(Optional.of(flight));
         when(flightMapper.toDisplayDTO(flight)).thenReturn(displayDto);
@@ -119,7 +118,7 @@ class FlightServiceTest {
             .thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class,
-            () -> flightService.findByFlightNumberAndDepartureDate("SU1", LocalDate.now(), "P1"));
+            () -> {flightService.findByFlightNumberAndDepartureDate("SU1", LocalDate.now(), "P1");});
     }
 
     @Test
@@ -148,7 +147,7 @@ class FlightServiceTest {
             .thenReturn(Optional.empty());
 
         assertThrows(ResourceNotFoundException.class,
-            () -> flightService.findFlightByDetailsAndPassportNative("SU", LocalDate.now(), "P"));
+            () -> {flightService.findFlightByDetailsAndPassportNative("SU1", LocalDate.now(), "P1");});
     }
 
     @Test

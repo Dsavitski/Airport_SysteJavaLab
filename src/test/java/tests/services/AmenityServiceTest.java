@@ -1,3 +1,5 @@
+package tests.services;
+
 import com.example.demo.Amenities;
 import com.example.demo.dto.AmenityCreateDto;
 import com.example.demo.dto.AmenityDisplayDto;
@@ -94,10 +96,10 @@ class AmenityServiceTest {
     @Test
     void createAmenitiesBulkTransactional_errorName() {
         AmenityCreateDto dto = new AmenityCreateDto();
-        dto.setAmenities(Amenities.ErrorName);
+        dto.setAmenities(Amenities.ERRORNAME);
 
         assertThrows(BadRequestException.class,
-            () -> amenityService.createAmenitiesBulkTransactional(List.of(dto)));
+            () -> {amenityService.createAmenitiesBulkTransactional(List.of(dto));});
     }
 
     @Test
@@ -124,10 +126,10 @@ class AmenityServiceTest {
     @Test
     void createAmenitiesBulkWithoutTransaction_errorName() {
         AmenityCreateDto dto = new AmenityCreateDto();
-        dto.setAmenities(Amenities.ErrorName);
+        dto.setAmenities(Amenities.ERRORNAME);
 
         assertThrows(BadRequestException.class,
-            () -> amenityService.createAmenitiesBulkWithoutTransaction(List.of(dto)));
+            () -> {amenityService.createAmenitiesBulkWithoutTransaction(List.of(dto));});
     }
 
     @Test

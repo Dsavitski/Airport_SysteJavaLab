@@ -1,3 +1,5 @@
+package tests.services;
+
 import com.example.demo.dto.TicketCreateDto;
 import com.example.demo.dto.TicketDisplayDto;
 import com.example.demo.entities.Flight;

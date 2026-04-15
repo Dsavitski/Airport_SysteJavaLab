@@ -45,7 +45,7 @@ public class AmenityService {
                 if (dto == null) {
                     throw new ResourceNotFoundException("DTO is null");
                 }
-                if (Amenities.ErrorName.equals(dto.getAmenities())) {
+                if (Amenities.ERRORNAME.equals(dto.getAmenities())) {
                     throw new BadRequestException("Simulated error in transactional method");
                 }
                 Amenity amenity = amenityMapper.toEntity(dto);
@@ -62,7 +62,7 @@ public class AmenityService {
                 if (dto == null) {
                     throw new ResourceNotFoundException("DTO is null");
                 }
-                if (Amenities.ErrorName.equals(dto.getAmenities())) {
+                if (Amenities.ERRORNAME.equals(dto.getAmenities())) {
                     throw new BadRequestException("Simulated error in non-transactional method");
                 }
                 Amenity amenity = amenityMapper.toEntity(dto);

@@ -1,3 +1,4 @@
+package tests.services;
 
 import com.example.demo.dto.AirportCreateDto;
 import com.example.demo.dto.AirportDisplayDto;
@@ -6,16 +7,16 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.mapper.AirportMapper;
 import com.example.demo.repository.AirportRepository;
+
 import com.example.demo.service.AirportService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -51,6 +52,7 @@ class AirportServiceTest {
         displayDto.setCountry("France");
     }
 
+    // -------- CREATE --------
     @Test
     void createAirport_success() {
         when(airportMapper.toEntity(createDto)).thenReturn(airport);
@@ -60,9 +62,12 @@ class AirportServiceTest {
         AirportDisplayDto result = airportService.createAirport(createDto);
 
         assertNotNull(result);
+        verify(airportMapper).toEntity(createDto);
         verify(airportRepository).save(airport);
+        verify(airportMapper).toDisplayDto(airport);
     }
 
+    // -------- BULK TRANSACTIONAL --------
     @Test
     void createAirportsBulkTransactional_success() {
         when(airportMapper.toEntity(createDto)).thenReturn(airport);
@@ -73,6 +78,10 @@ class AirportServiceTest {
             airportService.createAirportsBulkTransactinal(List.of(createDto));
 
         assertEquals(1, result.size());
+
+        verify(airportMapper).toEntity(createDto);
+        verify(airportRepository).save(airport);
+        verify(airportMapper).toDisplayDto(airport);
     }
 
     @Test
@@ -93,6 +102,7 @@ class AirportServiceTest {
             () -> airportService.createAirportsBulkTransactinal(List.of(badDto)));
     }
 
+    // -------- BULK NON-TRANSACTIONAL --------
     @Test
     void createAirportsBulk_success() {
         when(airportMapper.toEntity(createDto)).thenReturn(airport);
@@ -103,6 +113,10 @@ class AirportServiceTest {
             airportService.createAirportsBulk(List.of(createDto));
 
         assertEquals(1, result.size());
+
+        verify(airportMapper).toEntity(createDto);
+        verify(airportRepository).save(airport);
+        verify(airportMapper).toDisplayDto(airport);
     }
 
     @Test
@@ -123,16 +137,19 @@ class AirportServiceTest {
             () -> airportService.createAirportsBulk(List.of(badDto)));
     }
 
+    // -------- GET ALL --------
     @Test
-    void getAllAirports() {
+    void getAllAirports_success() {
         when(airportRepository.findAll()).thenReturn(List.of(airport));
         when(airportMapper.toDisplayDto(airport)).thenReturn(displayDto);
 
         List<AirportDisplayDto> result = airportService.getAllAirports();
 
         assertEquals(1, result.size());
+        verify(airportMapper).toDisplayDto(airport);
     }
 
+    // -------- GET BY ID --------
     @Test
     void getAirportByCode_success() {
         when(airportRepository.findById(1L)).thenReturn(Optional.of(airport));
@@ -151,6 +168,7 @@ class AirportServiceTest {
             () -> airportService.getAirportByCode(1L));
     }
 
+    // -------- UPDATE --------
     @Test
     void updateAirport_success() {
         AirportCreateDto updateDto = new AirportCreateDto();
@@ -158,13 +176,14 @@ class AirportServiceTest {
         updateDto.setCountry("UK");
 
         when(airportRepository.findById(1L)).thenReturn(Optional.of(airport));
-        when(airportRepository.save(any())).thenReturn(airport);
+        when(airportRepository.save(airport)).thenReturn(airport);
         when(airportMapper.toDisplayDto(airport)).thenReturn(displayDto);
 
         AirportDisplayDto result = airportService.updateAirport(1L, updateDto);
 
         assertNotNull(result);
         assertEquals("London", airport.getCity());
+        assertEquals("UK", airport.getCountry());
     }
 
     @Test
@@ -175,6 +194,7 @@ class AirportServiceTest {
             () -> airportService.updateAirport(1L, createDto));
     }
 
+    // -------- DELETE --------
     @Test
     void deleteAirport_success() {
         when(airportRepository.existsById(1L)).thenReturn(true);
@@ -190,5 +210,7 @@ class AirportServiceTest {
 
         assertThrows(ResourceNotFoundException.class,
             () -> airportService.deleteAirport(1L));
+
+        verify(airportRepository, never()).deleteById(any());
     }
 }
