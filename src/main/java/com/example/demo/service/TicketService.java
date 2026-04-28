@@ -41,7 +41,7 @@ public class TicketService {
             try {
                 Thread.sleep(40000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.warn(e.getMessage());
                 Thread.currentThread().interrupt();
             }
             createTicket(dto, flightId);
@@ -66,7 +66,7 @@ public class TicketService {
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.warn(e.getMessage());
                 Thread.currentThread().interrupt();
             }
         }
