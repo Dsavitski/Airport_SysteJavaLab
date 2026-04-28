@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.Amenities;
+import com.example.demo.enums.Amenities;
 import com.example.demo.entities.Amenity;
 import com.example.demo.dto.AmenityCreateDto;
 import com.example.demo.dto.AmenityDisplayDto;

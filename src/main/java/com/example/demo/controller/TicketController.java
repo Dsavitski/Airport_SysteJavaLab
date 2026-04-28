@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/api/tickets")
@@ -93,4 +94,28 @@ public class TicketController {
         ticketService.deleteTicket(id);
         return ResponseEntity.noContent().build();
     }
+
+    @Operation(summary = "Создать билет асинхронно",
+        description = "Создает билет асинхронно и возвращает taskId для отслеживания.")
+    @PostMapping("/async/{flightId}")
+    public ResponseEntity<String> createTicketAsync(@Valid @RequestBody TicketCreateDto dto,
+                                                    @PathVariable Long flightId) {
+        CompletableFuture<String> taskIdFuture = ticketService.createTicketAsync(dto, flightId);
+        String taskId = taskIdFuture.join();
+        return ResponseEntity.ok(taskId);
+    }
+
+    @Operation(summary = "Получить статус задачи", description = "Возвращает статус асинхронной задачи по taskId.")
+    @GetMapping("/taskStatus/{taskId}")
+    public ResponseEntity<String> getTaskStatus(@PathVariable String taskId) {
+        String status = ticketService.getTaskStatus(taskId);
+        return ResponseEntity.ok(status);
+    }
+    @Operation(summary = "Счетчики для race condition", description = "Проверяет синхронный и асинхронный счетчики.")
+    @GetMapping("/race-condition")
+    public String runRaceConditionDemo() {
+        ticketService.createTicketsRaceConditions();
+        return "Race condition демонстрация завершена. Посмотрите логи.";
+    }
+
 }

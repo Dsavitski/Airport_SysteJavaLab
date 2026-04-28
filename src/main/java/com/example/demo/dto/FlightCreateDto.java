@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import com.example.demo.FlightStatus;
+import com.example.demo.enums.FlightStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

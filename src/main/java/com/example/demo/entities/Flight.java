@@ -1,6 +1,6 @@
 package com.example.demo.entities;
 
-import com.example.demo.FlightStatus;
+import com.example.demo.enums.FlightStatus;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

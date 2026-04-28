@@ -1,6 +1,6 @@
 package com.example.demo.entities;
 
-import com.example.demo.Amenities;
+import com.example.demo.enums.Amenities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;

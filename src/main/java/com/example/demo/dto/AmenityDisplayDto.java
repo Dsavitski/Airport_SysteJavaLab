@@ -1,7 +1,7 @@
 package com.example.demo.dto;
 
 
-import com.example.demo.Amenities;
+import com.example.demo.enums.Amenities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

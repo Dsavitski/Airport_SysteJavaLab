@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import com.example.demo.Amenities;
+import com.example.demo.enums.Amenities;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
