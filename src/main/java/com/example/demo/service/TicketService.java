@@ -32,7 +32,7 @@ public class TicketService {
     private final FlightRepository flightRepository;
     private final TicketMapper ticketMapper;
     private final Map<String, CompletableFuture<String>> tasks = new ConcurrentHashMap<>();
-    private final Logger LOG = LoggerFactory.getLogger(TicketService.class);
+    private final Logger log = LoggerFactory.getLogger(TicketService.class);
 
     @Async
     public CompletableFuture<String> createTicketAsync(TicketCreateDto dto, Long flightId) {
@@ -41,6 +41,7 @@ public class TicketService {
             try {
                 Thread.sleep(40000);
             } catch (InterruptedException e) {
+                e.printStackTrace();
                 Thread.currentThread().interrupt();
             }
             createTicket(dto, flightId);
@@ -65,11 +66,12 @@ public class TicketService {
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
-        LOG.info("Результат без защиты (возможна ошибка): " + raceCounter);
-        LOG.info("Общий счетчик с AtomicInteger: " + atomicCounter.get());
+        log.info("Результат без защиты (возможна ошибка): " + raceCounter);
+        log.info("Общий счетчик с AtomicInteger: " + atomicCounter.get());
     }
 
     public String getTaskStatus(String taskId) {

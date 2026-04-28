@@ -17,6 +17,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -86,11 +87,8 @@ class AmenityServiceTest {
 
     @Test
     void createAmenitiesBulkTransactional_nullDto() {
-        List<AmenityCreateDto> list = new java.util.ArrayList<>();
-        list.add(null);
-
         assertThrows(ResourceNotFoundException.class,
-            () -> amenityService.createAmenitiesBulkTransactional(list));
+            () -> amenityService.createAmenitiesBulkTransactional(Collections.singletonList(null)));
     }
 
     @Test
@@ -118,11 +116,8 @@ class AmenityServiceTest {
 
     @Test
     void createAmenitiesBulkWithoutTransaction_nullDto() {
-        List<AmenityCreateDto> list = new java.util.ArrayList<>();
-        list.add(null);
-
         assertThrows(ResourceNotFoundException.class,
-            () -> amenityService.createAmenitiesBulkWithoutTransaction(list));
+            () -> amenityService.createAmenitiesBulkWithoutTransaction(Collections.singletonList(null)));
     }
 
     @Test

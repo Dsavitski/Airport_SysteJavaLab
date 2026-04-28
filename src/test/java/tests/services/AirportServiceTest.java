@@ -84,11 +84,8 @@ class AirportServiceTest {
 
     @Test
     void createAirportsBulkTransactional_nullDto() {
-        List<AirportCreateDto> list = new ArrayList<>();
-        list.add(null);
-
         assertThrows(ResourceNotFoundException.class,
-            () -> airportService.createAirportsBulkTransactinal(list));
+            () -> airportService.createAirportsBulkTransactinal(Collections.singletonList(null)));
     }
 
     @Test
@@ -120,11 +117,8 @@ class AirportServiceTest {
 
     @Test
     void createAirportsBulk_nullDto() {
-        List<AirportCreateDto> list = new ArrayList<>();
-        list.add(null);
-
         assertThrows(ResourceNotFoundException.class,
-            () -> airportService.createAirportsBulk(list));
+            () -> airportService.createAirportsBulk(Collections.singletonList(null)));
     }
 
     @Test
