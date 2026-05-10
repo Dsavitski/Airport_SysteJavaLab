@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +30,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/flights")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class FlightController {
 
     private final FlightService flightService;
@@ -41,12 +43,16 @@ public class FlightController {
     })
     @PostMapping
     public ResponseEntity<FlightDisplayDto> createFlight(@Valid @RequestBody FlightCreateDto dto) {
+        System.out.println("📥 Получен запрос на создание рейса: " + dto);
+        System.out.println("📅 DepartureDate: " + dto.getDepartureDate());
+        System.out.println("🛫 Airport ID: " + dto.getDepartureAirportCode());
+
         FlightDisplayDto createdFlight = flightService.createFlight(dto);
         return new ResponseEntity<>(createdFlight, HttpStatus.CREATED);
     }
 
-    @Operation(summary = "Получить все рейсы с joined fetch", description =
-        "Получает все рейсы с использованием join fetch.")
+    @Operation(summary = "Получить все рейсы с joined fetch",
+        description = "Получает все рейсы с использованием join fetch.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Успешное получение списка рейсов")
     })
@@ -69,8 +75,8 @@ public class FlightController {
         return ResponseEntity.ok(flights);
     }
 
-    @Operation(summary = "Найти рейс по номеру и дате отправления", description =
-        "Поиск рейса по номеру, дате отправления и паспорту.")
+    @Operation(summary = "Найти рейс по номеру и дате отправления",
+        description = "Поиск рейса по номеру, дате отправления и паспорту.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Рейс найден и возвращен"),
         @ApiResponse(responseCode = "404", description = "Рейс не найден")
@@ -80,13 +86,14 @@ public class FlightController {
         @RequestParam String flightNumber,
         @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate departureDate,
         @RequestParam String passportNumber) {
-        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(flightNumber,
-            departureDate, passportNumber);
+
+        FlightDisplayDto flightDto = flightService.findByFlightNumberAndDepartureDate(
+            flightNumber, departureDate, passportNumber);
         return ResponseEntity.ok(flightDto);
     }
 
-    @Operation(summary = "Найти рейс по номеру и дате (native)", description =
-        "Поиск рейса по номеру, дате отправления и паспорту с использованием native запроса.")
+    @Operation(summary = "Найти рейс по номеру и дате (native)",
+        description = "Поиск рейса с использованием native запроса.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Рейс найден и возвращен"),
         @ApiResponse(responseCode = "404", description = "Рейс не найден")
@@ -96,8 +103,9 @@ public class FlightController {
         @RequestParam String flightNumber,
         @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate departureDate,
         @RequestParam String passportNumber) {
-        FlightDisplayDto flightDto = flightService.findFlightByDetailsAndPassportNative(flightNumber,
-            departureDate, passportNumber);
+
+        FlightDisplayDto flightDto = flightService.findFlightByDetailsAndPassportNative(
+            flightNumber, departureDate, passportNumber);
         return ResponseEntity.ok(flightDto);
     }
 
@@ -118,7 +126,11 @@ public class FlightController {
         @ApiResponse(responseCode = "404", description = "Рейс не найден")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<FlightDisplayDto> updateFlight(@PathVariable Long id, @RequestBody FlightCreateDto dto) {
+    public ResponseEntity<FlightDisplayDto> updateFlight(
+        @PathVariable Long id,
+        @Valid @RequestBody FlightCreateDto dto) {
+
+        System.out.println("✏️ Обновление рейса " + id + ": " + dto);
         FlightDisplayDto updatedFlight = flightService.updateFlight(id, dto);
         return ResponseEntity.ok(updatedFlight);
     }
@@ -130,6 +142,7 @@ public class FlightController {
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFlight(@PathVariable Long id) {
+        System.out.println("🗑️ Удаление рейса: " + id);
         flightService.deleteFlight(id);
         return ResponseEntity.noContent().build();
     }

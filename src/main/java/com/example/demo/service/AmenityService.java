@@ -1,10 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.enums.Amenities;
 import com.example.demo.entities.Amenity;
 import com.example.demo.dto.AmenityCreateDto;
 import com.example.demo.dto.AmenityDisplayDto;
-import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.mapper.AmenityMapper;
 import com.example.demo.repository.AmenityRepository;
@@ -45,9 +43,6 @@ public class AmenityService {
                 if (dto == null) {
                     throw new ResourceNotFoundException("DTO is null");
                 }
-                if (Amenities.ERRORNAME.equals(dto.getAmenities())) {
-                    throw new BadRequestException("Simulated error in transactional method");
-                }
                 Amenity amenity = amenityMapper.toEntity(dto);
                 Amenity savedAmenity = amenityRepository.save(amenity);
                 return amenityMapper.toDisplayDto(savedAmenity);
@@ -61,9 +56,6 @@ public class AmenityService {
             .map(dto -> {
                 if (dto == null) {
                     throw new ResourceNotFoundException("DTO is null");
-                }
-                if (Amenities.ERRORNAME.equals(dto.getAmenities())) {
-                    throw new BadRequestException("Simulated error in non-transactional method");
                 }
                 Amenity amenity = amenityMapper.toEntity(dto);
                 Amenity savedAmenity = amenityRepository.save(amenity);
