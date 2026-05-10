@@ -43,10 +43,6 @@ public class FlightController {
     })
     @PostMapping
     public ResponseEntity<FlightDisplayDto> createFlight(@Valid @RequestBody FlightCreateDto dto) {
-        System.out.println("📥 Получен запрос на создание рейса: " + dto);
-        System.out.println("📅 DepartureDate: " + dto.getDepartureDate());
-        System.out.println("🛫 Airport ID: " + dto.getDepartureAirportCode());
-
         FlightDisplayDto createdFlight = flightService.createFlight(dto);
         return new ResponseEntity<>(createdFlight, HttpStatus.CREATED);
     }
@@ -129,8 +125,6 @@ public class FlightController {
     public ResponseEntity<FlightDisplayDto> updateFlight(
         @PathVariable Long id,
         @Valid @RequestBody FlightCreateDto dto) {
-
-        System.out.println("✏️ Обновление рейса " + id + ": " + dto);
         FlightDisplayDto updatedFlight = flightService.updateFlight(id, dto);
         return ResponseEntity.ok(updatedFlight);
     }
@@ -142,7 +136,6 @@ public class FlightController {
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFlight(@PathVariable Long id) {
-        System.out.println("🗑️ Удаление рейса: " + id);
         flightService.deleteFlight(id);
         return ResponseEntity.noContent().build();
     }
