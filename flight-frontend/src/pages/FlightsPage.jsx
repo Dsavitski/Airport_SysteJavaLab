@@ -6,7 +6,6 @@ import { airplaneService } from '../services/airplaneService';
 import { amenityService } from '../services/amenityService';
 import TicketList from '../components/tickets/TicketList';
 
-// ✅ Валидация даты в формате YYYY-MM-DD
 const isValidISODate = (dateStr) => {
     if (!dateStr || !/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return false;
     const date = new Date(dateStr);
@@ -14,7 +13,6 @@ const isValidISODate = (dateStr) => {
     return !isNaN(date.getTime()) && year >= 1900 && year <= 2100;
 };
 
-// ✅ Конвертация различных форматов в ISO (YYYY-MM-DD)
 const toISODate = (dateStr) => {
     if (!dateStr) return null;
     if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
@@ -40,10 +38,8 @@ const FlightsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('');
 
-    // ✅ Состояние для раскрытых строк с билетами
     const [expandedFlightId, setExpandedFlightId] = useState(null);
 
-    // ✅ Справочники для отображения
     const [airports, setAirports] = useState([]);
     const [airplanes, setAirplanes] = useState([]);
     const [amenities, setAmenities] = useState([]);
@@ -113,7 +109,6 @@ const FlightsPage = () => {
         setFilteredFlights(filtered);
     };
 
-    // ✅ Вспомогательные функции для отображения
     const getAirportById = (id) => {
         return airports.find(a => a.id === Number(id)) || null;
     };
@@ -242,7 +237,6 @@ const FlightsPage = () => {
         });
     };
 
-    // ✅ Переключение раскрытия строки с билетами
     const toggleTicketExpansion = (flightId) => {
         setExpandedFlightId(expandedFlightId === flightId ? null : flightId);
     };
@@ -267,7 +261,7 @@ const FlightsPage = () => {
             {error && <Alert variant="danger" onClose={() => setError(null)} dismissible>{error}</Alert>}
             {success && <Alert variant="success" onClose={() => setSuccess(null)} dismissible>{success}</Alert>}
 
-            {/* ✅ Статистика */}
+            {}
             <Row className="mb-4">
                 <Col md={6}>
                     <Card className="text-center shadow-sm border-primary">
@@ -291,7 +285,7 @@ const FlightsPage = () => {
                 </Col>
             </Row>
 
-            {/* Поиск и фильтр */}
+            {}
             <Row className="mb-4">
                 <Col md={6}>
                     <Form.Control
@@ -337,7 +331,7 @@ const FlightsPage = () => {
 
                         return (
                             <React.Fragment key={flight.id}>
-                                {/* Основная строка рейса */}
+                                {}
                                 <tr
                                     className={isExpanded ? 'table-info' : ''}
                                     style={{ cursor: 'pointer' }}
@@ -401,7 +395,7 @@ const FlightsPage = () => {
                                     </td>
                                 </tr>
 
-                                {/* ✅ Раскрывающаяся панель с билетами (БЕЙДЖИ УДАЛЕНЫ) */}
+                                {}
                                 <tr>
                                     <td colSpan="7" className="p-0 border-0">
                                         <Collapse in={isExpanded}>
@@ -427,7 +421,7 @@ const FlightsPage = () => {
                 </Table>
             )}
 
-            {/* Модальное окно: форма рейса */}
+            {}
             <Modal show={showModal} onHide={() => { setShowModal(false); resetForm(); }} size="lg" backdrop="static">
                 <Modal.Header closeButton>
                     <Modal.Title>{editingFlight ? '✏️ Редактирование' : '➕ Новый рейс'}</Modal.Title>
